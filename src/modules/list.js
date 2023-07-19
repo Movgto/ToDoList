@@ -1,5 +1,7 @@
 import List from './listStorage.js';
-import { updateIndex, updateStorage, createTask, clearCompleted, addToList } from './listFunctions.js';
+import {
+  updateIndex, updateStorage, createTask, clearCompleted, addToList,
+} from './listFunctions.js';
 
 const list = document.getElementById('list');
 const addInput = document.querySelector('#add input');
