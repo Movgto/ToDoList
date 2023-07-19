@@ -60,7 +60,9 @@ To get a local copy up and running, follow these steps.
 
 In order to run this project you need:
 
-Use `npm run dev` to run the application locally hosted on port 3000.
+- Clone this repository using this command `git clone [repository link]`
+- You need to have node package manager already installed in your system, check the installation process [here](https://nodejs.org/en/download) if you don't already have it.
+- Use `npm run dev` to run the application locally hosted on port 3000, remember that you need to run this command on the root directory of the project.
 
 ## 👥 Authors <a name="authors"></a>
 
