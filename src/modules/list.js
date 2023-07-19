@@ -30,8 +30,12 @@ const createTask = (desc, completed) => {
     checkbox.addEventListener('click', () => {
         if(checkbox.checked == true) {
             taskEl.classList.add('completed');
+            List.tasks[parseInt(taskEl.getAttribute('key'))].completed = true;
+            updateStorage();
         } else {
             taskEl.classList.remove('completed');
+            List.tasks[parseInt(taskEl.getAttribute('key'))].completed = false;
+            updateStorage();
         }
     });
 
@@ -110,6 +114,8 @@ const addToList = (index, description, completed, push = false) => {
         })
     }
 
+    addInput.value = '';
+
     updateIndex();
 };
 
@@ -123,6 +129,7 @@ const updateIndex = () => {
     List.tasks.forEach((task, i) => {
         task.index = i;
     });
+
     console.log(List.tasks);
 
     updateStorage();
@@ -130,6 +137,23 @@ const updateIndex = () => {
 
 const updateStorage = () => {
     localStorage.setItem('taskList', JSON.stringify(List.tasks));
+};
+
+const resetAnimation = () => {
+    const animationOptions = {
+        duration: 500,
+        iterations: 1
+    };
+    
+    const keys = [
+        {
+            transform: 'rotate(0)'
+        },
+        {
+            transform: 'rotate(360deg)'
+        }
+    ];
+    resetBtn.animate(keys, animationOptions);
 };
 
 const initiateList = () => {
@@ -151,6 +175,7 @@ const initiateList = () => {
 
     clear.addEventListener('click', clearCompleted);
     resetBtn.addEventListener('click', () => {
+        resetAnimation();
         const taskElements = document.querySelectorAll('.task');
         taskElements.forEach((task) => {
             task.remove();
