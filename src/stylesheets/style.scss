@@ -1,127 +1,126 @@
 $padding-gral: 0.5rem;
 
 *,
-*:after,
-*:before {
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
+*::after,
+*::before {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
 body {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: #dfdfdf;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #dfdfdf;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 #list-ctr {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 3rem;
+  width: 90%;
+  max-width: 40rem;
+  background-color: #fff;
+  box-shadow: 0 0.4rem 1rem #4a4a4a5a;
+
+  #list-header {
+    font-size: 0.5rem;
+    font-weight: 100;
+    width: 100%;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin-top: 3rem;
-    width: 90%;
-    max-width: 40rem;
-    background-color: #fff;
-    box-shadow: 0 0.4rem 1rem #4a4a4a5a;
+    justify-content: space-between;
+    padding: $padding-gral;
+    color: #4a4a4a;
+  }
 
-    #list-header {
-        font-size: 0.5rem;
-        font-weight: 100;
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-        padding: $padding-gral;
-        color: #4a4a4a;
+  input {
+    border: none;
+
+    &:focus {
+      outline: none;
     }
+  }
 
-    #add {
-        padding: $padding-gral;
-        display: flex;
-        justify-content: space-between;
-        border-top: 0.1rem solid #dfdfdf;
-        
-        input {
-            font-size: 1rem;
-            font-style: italic;
-        }
-    }
+  i {
+    font-size: 1rem;
+    color: #afafaf;
+  }
 
-    input {
-        border: none;
-    }
+  .task {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.2rem;
+    border-top: 0.1rem solid #dfdfdf;
+    padding: $padding-gral;
+    font-size: 3rem;
 
-    button {
-        border: none;
-        background-color: transparent;
-
-        &:hover {
-            cursor: pointer;
-        }
-    }
-
-    input:focus {
-        outline: none;
-    }
-
-    .task {
-        display: flex;
-        justify-content: space-between;
-        gap: 0.2rem;
-        border-top: 0.1rem solid #dfdfdf;
-        padding: $padding-gral;
-        font-size: 3rem;
-    
-        .desc {
-            flex: 1 1;
-        }
-    
-        i {
-            &:hover {
-                cursor: move;
-            }
-        }
-    }
-
-    .task.completed {
-        text-decoration: line-through;
-    }
-
-    .task.selected {
-        background-color: #fcff50;
-
-        input {
-            background-color: transparent;
-        }
-
-        i {
-            &:hover {
-                cursor: pointer;
-            }
-        }
+    .desc {
+      flex: 1 1;
     }
 
     i {
-        font-size: 1rem;
-        color: #afafaf;
+      &:hover {
+        cursor: move;
+      }
+    }
+  }
+
+  .task.selected {
+    background-color: #fcff50;
+
+    input {
+      background-color: transparent;
     }
 
-    #complete-ctr {
-        display: flex;
-        justify-content: center;
-        background-color: #efefef;
-        padding: 0;
-        margin: 0;
-        border-top: 0.1rem solid #dfdfdf;
-        
-
-        button {
-            padding: 0.5rem;
-            color: #6a6a6a;
-        }
+    i {
+      &:hover {
+        cursor: pointer;
+      }
     }
+  }
+
+  #add {
+    padding: $padding-gral;
+    display: flex;
+    justify-content: space-between;
+    border-top: 0.1rem solid #dfdfdf;
+
+    input {
+      font-size: 1rem;
+      font-style: italic;
+    }
+  }
+
+  button {
+    border: none;
+    background-color: transparent;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  .task.completed {
+    text-decoration: line-through;
+  }
+
+  #complete-ctr {
+    display: flex;
+    justify-content: center;
+    background-color: #efefef;
+    padding: 0;
+    margin: 0;
+    border-top: 0.1rem solid #dfdfdf;
+
+    button {
+      padding: 0.5rem;
+      color: #6a6a6a;
+    }
+  }
 }
