@@ -146,7 +146,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nclass List {\r\n    static tasks = [\r\n      {\r\n        index: 0,\r\n        description: 'Cook breakfast',\r\n        completed: true,\r\n      },\r\n      {\r\n        index: 1,\r\n        description: 'Clean the kitchen',\r\n        completed: false,\r\n      },\r\n      {\r\n        index: 2,\r\n        description: 'Grocery shopping',\r\n        completed: false,\r\n      },\r\n    ];\r\n}\r\n\r\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (List);\n\n//# sourceURL=webpack://webpacktest/./src/modules/listStorage.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nclass List {\r\n    static tasks = [];\r\n}\r\n\r\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (List);\n\n//# sourceURL=webpack://webpacktest/./src/modules/listStorage.js?");
 
 /***/ })
 
