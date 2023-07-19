@@ -1,27 +1,10 @@
+import List from './listStorage.js';
+
 const list = document.getElementById('list');
 const addInput = document.querySelector('#add input');
 const addBtn = document.querySelector('#add button');
 const clear = document.querySelector('#clear');
-
-class List {
-    static tasks = [
-        {
-            index: 0,
-            description: 'Cook something',
-            completed: true
-        },
-        {
-            index: 1,
-            description: 'Clean the kitchen',
-            completed: false
-        },
-        {
-            index: 2,
-            description: 'Grocery shopping',
-            completed: false
-        }
-    ];
-}
+const resetBtn = document.querySelector('#reset-btn');
 
 const createTask = (desc, completed) => {
     const taskEl = document.createElement('div');
@@ -167,6 +150,14 @@ const initiateList = () => {
     })
 
     clear.addEventListener('click', clearCompleted);
+    resetBtn.addEventListener('click', () => {
+        const taskElements = document.querySelectorAll('.task');
+        taskElements.forEach((task) => {
+            task.remove();
+        })
+        List.tasks = [];
+        updateStorage();
+    });
 }
 
 export default initiateList;
