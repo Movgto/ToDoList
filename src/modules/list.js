@@ -50,7 +50,7 @@ const initiateList = () => {
     }
   });
 
-  clear.addEventListener('click', () => {clearCompleted(List, updateIndex)});
+  clear.addEventListener('click', () => { clearCompleted(List, updateIndex); });
   resetBtn.addEventListener('click', () => {
     resetAnimation();
     const taskElements = document.querySelectorAll('.task');

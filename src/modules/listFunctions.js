@@ -88,7 +88,7 @@ export const createTask = (desc, completed) => {
 export const addToList = (index, description, completed, push = false) => {
   const newTask = createTask(description, completed);
 
-  if(description === null || description === '') {
+  if (description === null || description === '') {
     return;
   }
 
