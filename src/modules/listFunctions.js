@@ -11,6 +11,11 @@ export const updateStorage = () => {
 export const updateIndex = () => {
   const taskElements = document.querySelectorAll('.task');
 
+  if (taskElements.length <= 0 || List.tasks.length <= 0) {
+    updateStorage();
+    return;
+  }
+
   taskElements.forEach((taskEl, i) => {
     taskEl.setAttribute('key', i);
   });

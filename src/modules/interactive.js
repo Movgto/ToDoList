@@ -1,5 +1,9 @@
 export const clearCompleted = (list, updateIndexFunc) => {
   const completedTasks = document.querySelectorAll('.completed');
+  if (completedTasks.length <= 0) {
+    return;
+  }
+
   completedTasks.forEach((task) => {
     list.tasks = list.tasks.filter((item) => (item.index !== Number(task.getAttribute('key'))));
     task.remove();

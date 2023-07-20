@@ -33,10 +33,12 @@ const initiateList = () => {
     List.tasks = listData;
   }
 
-  List.tasks.forEach((task) => {
-    const newTask = createTask(task.description, task.completed);
-    list.appendChild(newTask);
-  });
+  if (List.tasks.length > 0) {
+    List.tasks.forEach((task) => {
+      const newTask = createTask(task.description, task.completed);
+      list.appendChild(newTask);
+    });
+  }
 
   updateIndex();
 
