@@ -106,7 +106,12 @@ export const clearCompleted = () => {
 
 export const addToList = (index, description, completed, push = false) => {
   const newTask = createTask(description, completed);
-  if (push && (description !== null || description !== '')) {
+
+  if(description === null || description === '') {
+    return;
+  }
+
+  if (push) {
     list.appendChild(newTask);
     List.tasks.push({
       description,

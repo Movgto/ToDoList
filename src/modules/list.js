@@ -43,6 +43,12 @@ const initiateList = () => {
     addToList(0, addInput.value, false, true);
   });
 
+  addInput.addEventListener('keydown', (e) => {
+    if (e.keyCode === 13) {
+      addToList(0, addInput.value, false, true);
+    }
+  });
+
   clear.addEventListener('click', clearCompleted);
   resetBtn.addEventListener('click', () => {
     resetAnimation();
