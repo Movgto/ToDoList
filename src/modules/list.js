@@ -29,8 +29,11 @@ const resetAnimation = () => {
 
 const initiateList = () => {
   const listData = JSON.parse(localStorage.getItem('taskList'));
-  if (!listData || listData.length > 0) {
+  if (listData !== null) {
     List.tasks = listData;
+  } else {
+    updateStorage();
+    console.log('Empty array created');
   }
 
   if (List.tasks.length > 0) {
