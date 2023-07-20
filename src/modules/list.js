@@ -1,7 +1,8 @@
 import List from './listStorage.js';
 import {
-  updateIndex, updateStorage, createTask, clearCompleted, addToList,
+  updateIndex, updateStorage, createTask, addToList,
 } from './listFunctions.js';
+import { clearCompleted } from './interactive.js';
 
 const list = document.getElementById('list');
 const addInput = document.querySelector('#add input');
@@ -49,7 +50,7 @@ const initiateList = () => {
     }
   });
 
-  clear.addEventListener('click', clearCompleted);
+  clear.addEventListener('click', () => {clearCompleted(List, updateIndex)});
   resetBtn.addEventListener('click', () => {
     resetAnimation();
     const taskElements = document.querySelectorAll('.task');
