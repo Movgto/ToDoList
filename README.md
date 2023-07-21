@@ -48,7 +48,7 @@ Building a To Do List application with Webpack and ES6 modules
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- Not available for now, coming soon.
+Live demo [here](https://movgto.github.io/ToDoList/dist/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
