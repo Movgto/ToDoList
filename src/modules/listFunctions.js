@@ -1,4 +1,5 @@
 import List from './listStorage.js';
+import { changeCheckbox } from './interactive.js';
 
 const list = document.getElementById('list');
 const addInput = document.querySelector('#add input');
@@ -9,6 +10,11 @@ export const updateStorage = () => {
 
 export const updateIndex = () => {
   const taskElements = document.querySelectorAll('.task');
+
+  if (taskElements.length <= 0 || List.tasks.length <= 0) {
+    updateStorage();
+    return;
+  }
 
   taskElements.forEach((taskEl, i) => {
     taskEl.setAttribute('key', i);
@@ -42,18 +48,6 @@ export const createTask = (desc, completed) => {
     taskEl.classList.add('completed');
   }
 
-  checkbox.addEventListener('click', () => {
-    if (checkbox.checked === true) {
-      taskEl.classList.add('completed');
-      List.tasks[Number(taskEl.getAttribute('key'))].completed = true;
-      updateStorage();
-    } else {
-      taskEl.classList.remove('completed');
-      List.tasks[Number(taskEl.getAttribute('key'))].completed = false;
-      updateStorage();
-    }
-  });
-
   descField.addEventListener('focus', () => {
     taskEl.classList.add('selected');
     taskIcon.classList.remove('fa-ellipsis-vertical');
@@ -73,6 +67,8 @@ export const createTask = (desc, completed) => {
     List.tasks[index].description = descField.value;
     updateStorage();
   });
+
+  changeCheckbox(checkbox, taskEl, updateStorage, List);
 
   btn.addEventListener('click', () => {
     if (taskEl.classList.contains('selected')) {
@@ -94,20 +90,10 @@ export const createTask = (desc, completed) => {
   return taskEl;
 };
 
-export const clearCompleted = () => {
-  const completedTasks = document.querySelectorAll('.completed');
-  completedTasks.forEach((task) => {
-    List.tasks = List.tasks.filter((item) => (item.index !== Number(task.getAttribute('key'))));
-    task.remove();
-  });
-
-  updateIndex();
-};
-
 export const addToList = (index, description, completed, push = false) => {
   const newTask = createTask(description, completed);
 
-  if(description === null || description === '') {
+  if (description === null || description === '') {
     return;
   }
 

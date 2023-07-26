@@ -1,7 +1,8 @@
 import List from './listStorage.js';
 import {
-  updateIndex, updateStorage, createTask, clearCompleted, addToList,
+  updateIndex, updateStorage, createTask, addToList,
 } from './listFunctions.js';
+import { clearCompleted } from './interactive.js';
 
 const list = document.getElementById('list');
 const addInput = document.querySelector('#add input');
@@ -28,14 +29,19 @@ const resetAnimation = () => {
 
 const initiateList = () => {
   const listData = JSON.parse(localStorage.getItem('taskList'));
-  if (!listData || listData.length > 0) {
+  if (listData !== null) {
     List.tasks = listData;
+  } else {
+    updateStorage();
+    console.log('Empty array created');
   }
 
-  List.tasks.forEach((task) => {
-    const newTask = createTask(task.description, task.completed);
-    list.appendChild(newTask);
-  });
+  if (List.tasks.length > 0) {
+    List.tasks.forEach((task) => {
+      const newTask = createTask(task.description, task.completed);
+      list.appendChild(newTask);
+    });
+  }
 
   updateIndex();
 
@@ -49,7 +55,7 @@ const initiateList = () => {
     }
   });
 
-  clear.addEventListener('click', clearCompleted);
+  clear.addEventListener('click', () => { clearCompleted(List, updateIndex); });
   resetBtn.addEventListener('click', () => {
     resetAnimation();
     const taskElements = document.querySelectorAll('.task');
