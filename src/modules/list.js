@@ -10,23 +10,6 @@ const addBtn = document.querySelector('#add button');
 const clear = document.querySelector('#clear');
 const resetBtn = document.querySelector('#reset-btn');
 
-const resetAnimation = () => {
-  const animationOptions = {
-    duration: 500,
-    iterations: 1,
-  };
-
-  const keys = [
-    {
-      transform: 'rotate(0)',
-    },
-    {
-      transform: 'rotate(360deg)',
-    },
-  ];
-  resetBtn.animate(keys, animationOptions);
-};
-
 const initiateList = () => {
   const listData = JSON.parse(localStorage.getItem('taskList'));
   if (listData !== null) {
